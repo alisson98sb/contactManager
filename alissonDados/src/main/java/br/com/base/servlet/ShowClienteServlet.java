@@ -25,25 +25,27 @@ public class ShowClienteServlet extends HttpServlet {
 		
 		Banco banco = new Banco();
 		Cliente cliente = banco.getCliente(id);
-		
-		request.setAttribute("id", cliente.getId());
-		request.setAttribute("name", cliente.getName());
-		request.setAttribute("city", cliente.getCity());
-		request.setAttribute("phone", cliente.getPhone());
-		
 		String updating = request.getParameter("update");
-		System.out.println(updating);
 		Integer isUpdating = Integer.valueOf(updating);
-		
+
 		if(isUpdating == 1) {
+			
+			request.setAttribute("id", cliente.getId());
+			request.setAttribute("name", cliente.getName());
+			request.setAttribute("city", cliente.getCity());
+			request.setAttribute("phone", cliente.getPhone());
+			
+
 			//chamar jsp de edição 
 			RequestDispatcher rd = request.getRequestDispatcher("/update.jsp");
 			rd.forward(request, response);
 		} else {
+
 			//chamar jsp de edição 
 			RequestDispatcher rd = request.getRequestDispatcher("/clienteInfo.jsp");			
 			rd.forward(request, response);
 		}
+
 		
 	}
 }

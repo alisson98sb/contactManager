@@ -3,25 +3,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<!-- <link rel="stylesheet" href="/includes/estilo.css" >
+ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<h1>Portal de clientes</h1>
+<body class="vh-100 bg-dark">
+	<jsp:include page="templates/nav.jsp"></jsp:include>
+<div class="main d-flex justify-content-center h-50 align-items-center flex-column">
+	<h1 class="text-light">Portal de clientes</h1>
 
-	<div>
+	<div class="main" id="main">
 		<form action="/alissonDados/listagem" method="get">
-			<input type="submit" value="Exibir lista de clientes">
+			<button type="submit" class="btn btn-dark m-2 border border-secondary">Exibir lista de clientes</button>
 		</form>
 		<form action="/alissonDados/cadastro.jsp">
-			<input type="submit" value="Adicionar novo cliente">
-		</form>
-		<form action="/alissonDados/" method="get">
-			<input type="submit" value="Exibir lista de clientes">
-		</form>
-		<form action="/alissonDados/listagem" method="get">
-			<input type="submit" value="Exibir lista de clientes">
+			<button type="submit" class="btn btn-dark m-2 border border-secondary">Adicionar novo cliente</button>
 		</form>
 	</div>
+</div>
 </body>
 </html>

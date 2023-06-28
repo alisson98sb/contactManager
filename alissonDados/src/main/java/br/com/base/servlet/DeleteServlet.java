@@ -27,10 +27,7 @@ public class DeleteServlet extends HttpServlet {
 		
 		Banco banco = new Banco();
 		banco.deleteCliente(id);
-		
-		System.out.println("TEste");
-		
-		
+			
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem");
 		rd.forward(request, response);
 	}
