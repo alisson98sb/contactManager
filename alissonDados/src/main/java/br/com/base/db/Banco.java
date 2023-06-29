@@ -8,7 +8,7 @@ import br.com.base.constructor.Cliente;
 
 public class Banco {
 	public static List<Cliente> clientesLista = new ArrayList<>();
-//	private static List<Cliente> clienteLista = new ArrayList<>();
+
 	private static Integer id = 1;
 	
 	static {
