@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.Banco;
+
+import br.com.base.db.DAO.BancoDb;
 
 /**
  * Servlet implementation class CreateServlet
@@ -29,8 +30,8 @@ public class CreateServlet extends HttpServlet {
 		newCliente.setCity(clienteCidade);
 		newCliente.setPhone(clienteContato);
 		
-		Banco banco = new Banco();
-		banco.setClientes(newCliente);
+		BancoDb banco = new BancoDb();
+		banco.addClient(newCliente);
 		
 		System.out.println(clienteContato);
 		

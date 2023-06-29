@@ -20,6 +20,7 @@ public class Banco {
 		
 		clientesLista.add(cliente1);
 	}
+
 	
 	public List<Cliente> getClientes(){
 		return Banco.clientesLista;
@@ -34,10 +35,6 @@ public class Banco {
 		return null;
 	}
 	
-	public void setClientes(Cliente cliente) {
-		cliente.setId(id++);
-		Banco.clientesLista.add(cliente);
-	}
 	
 	public void deleteCliente(Integer clienteId) {
 		Iterator<Cliente> it = clientesLista.iterator();
@@ -62,4 +59,12 @@ public class Banco {
 	}
 	
 
+	
+	
+	
+	//feito
+	public void setClientes(Cliente cliente) {
+		cliente.setId(id++);
+		Banco.clientesLista.add(cliente);
+	}
 }
