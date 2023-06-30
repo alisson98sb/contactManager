@@ -22,10 +22,18 @@ public class Banco {
 	}
 
 	
-	public List<Cliente> getClientes(){
-		return Banco.clientesLista;
+	public Cliente updateCliente(Cliente cliente) {
+		Cliente oldCliente = this.getCliente(cliente.getId());
+
+		oldCliente.setName(cliente.getName());
+		oldCliente.setCity(cliente.getCity());
+		oldCliente.setPhone(cliente.getPhone());
+		
+		return oldCliente;
 	}
 	
+
+	//feito
 	public Cliente getCliente(Integer paramId) {
 		for( Cliente cliente : clientesLista) {
 			if(cliente.getId() == paramId) {
@@ -34,7 +42,6 @@ public class Banco {
 		}
 		return null;
 	}
-	
 	
 	public void deleteCliente(Integer clienteId) {
 		Iterator<Cliente> it = clientesLista.iterator();
@@ -48,21 +55,10 @@ public class Banco {
 		
 	}
 	
-	public Cliente updateCliente(Cliente cliente) {
-		Cliente oldCliente = this.getCliente(cliente.getId());
-
-		oldCliente.setName(cliente.getName());
-		oldCliente.setCity(cliente.getCity());
-		oldCliente.setPhone(cliente.getPhone());
-		
-		return oldCliente;
+	public List<Cliente> getClientes(){
+		return Banco.clientesLista;
 	}
-	
 
-	
-	
-	
-	//feito
 	public void setClientes(Cliente cliente) {
 		cliente.setId(id++);
 		Banco.clientesLista.add(cliente);

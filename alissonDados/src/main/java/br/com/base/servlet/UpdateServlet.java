@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.Banco;
+
+import br.com.base.db.DAO.BancoDb;
 
 /**
  * Servlet implementation class UpdateServlet
@@ -21,7 +22,7 @@ public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Teste");
+
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 		
@@ -36,8 +37,7 @@ public class UpdateServlet extends HttpServlet {
 		cliente.setPhone(clienteContato);
 		
 		
-		
-		Banco banco = new Banco();
+		BancoDb banco = new BancoDb();
 		banco.updateCliente(cliente);
 		
 		List<Cliente> clientes = banco.getClientes();

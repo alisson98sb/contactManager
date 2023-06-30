@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.Banco;
+import br.com.base.db.DAO.BancoDb;
 
 /**
  * Servlet implementation class ShowClienteServlet
@@ -23,13 +23,16 @@ public class ShowClienteServlet extends HttpServlet {
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 		
-		Banco banco = new Banco();
+		BancoDb banco = new BancoDb();
 		Cliente cliente = banco.getCliente(id);
+		
 		String updating = request.getParameter("update");
 		Integer isUpdating = Integer.valueOf(updating);
 
+		System.out.println("ok");
+		System.out.println(cliente.getId());
+		
 		if(isUpdating == 1) {
-			
 			request.setAttribute("id", cliente.getId());
 			request.setAttribute("name", cliente.getName());
 			request.setAttribute("city", cliente.getCity());

@@ -11,6 +11,64 @@ import br.com.base.constructor.Cliente;
 public class BancoDb {
 	private static Integer id = 1;
 	
+	public void updateCliente(Cliente newDatas) {
+		Conexao conexao = new Conexao();
+		Connection conn = conexao.getConnection();
+		
+		String sql = "UPDATE  projetousers SET name= '"+newDatas.getName()+"', city= '"+newDatas.getCity()+"', phone='"+newDatas.getPhone()+"' WHERE id=" 	+newDatas.getId()+ ";";
+		//String sql2 ="Insert INTO projetousers VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"');";
+		System.out.println(sql);
+		try {
+			Statement st = conn.createStatement();
+			st.executeUpdate(sql);
+		} catch (Exception e) {
+			System.err.println("Erro de conexão2");
+		}
+		
+	}
+	
+	
+	public Cliente getCliente(Integer clientId) {
+		Conexao conexao = new Conexao();
+		Connection conn = conexao.getConnection();
+		Cliente cliente = new Cliente();
+		
+		
+		String sql = "SELECT * FROM projetousers  WHERE id = "+clientId+";";
+		ResultSet res;
+		try {
+			System.out.println(clientId);
+			Statement st = conn.createStatement();
+			res = st.executeQuery(sql);
+			
+			while ( res.next() ) {
+				
+				int cId = res.getInt(1);
+				cliente.setId(cId);
+				
+				String cName = res.getString(2);
+				cliente.setName(cName);
+				
+				String cCity = res.getString(3);
+				cliente.setCity(cCity);
+				
+				String cPhone = res.getString(4);
+				cliente.setPhone(cPhone);
+				
+			}
+			System.out.println(cliente);
+						
+			
+			return cliente;
+			
+			
+		} catch (Exception e) {
+			System.err.println("Erro de conexão");
+		}
+		
+		return null;
+	}
+	
 	public void deleteCliente(Integer clientId) {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
@@ -37,7 +95,6 @@ public class BancoDb {
 			Statement st = conn.createStatement();
 			st.executeUpdate(sql);
 			
-			
 		} catch (Exception e) {
 			System.err.println("Erro de conexão");
 			return sql;
@@ -51,13 +108,11 @@ public class BancoDb {
 		
 		List<Cliente> cliente = new ArrayList<>();
 		
-		String sql = "select id, name, city, phone from projetousers";
+		String sql = "select id, name, city, phone from projetousers  ORDER BY name;";
 		ResultSet lista;
 		try {
 			Statement st = conn.createStatement();
 			lista = st.executeQuery(sql);
-	
-			System.out.println("Conectado!!");
 			
 			while ( lista.next() ) {
 				Cliente cliente1 = new Cliente();
@@ -76,7 +131,7 @@ public class BancoDb {
 				
 				cliente.add(cliente1);
 				
-				System.out.println("Usuario id : " + cliente1.getId() + " , name : " + cliente1.getName() + " , city : " + cliente1.getCity() + " , phone : " + cliente1.getPhone());
+//				System.out.println("Usuario id : " + cliente1.getId() + " , name : " + cliente1.getName() + " , city : " + cliente1.getCity() + " , phone : " + cliente1.getPhone());
 			}
 			
 			return cliente;
