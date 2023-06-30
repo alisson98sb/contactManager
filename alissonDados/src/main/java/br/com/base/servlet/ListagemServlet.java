@@ -17,16 +17,17 @@ import br.com.base.db.DAO.BancoDb;
 @WebServlet("/listagem")
 public class ListagemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		BancoDb db = new BancoDb();
 		List<Cliente> clientesLista = db.getClientes();
 
-		//seta uma variavel clientes com a lista de clientes para passar ao jsp;
+		// seta uma variavel clientes com a lista de clientes para passar ao jsp;
 		request.setAttribute("clientes", clientesLista);
-		
-		//chama o jsp da pagina home
+
+		// chama o jsp da pagina home
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem.jsp");
 		rd.forward(request, response);
 	}

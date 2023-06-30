@@ -17,17 +17,16 @@ import br.com.base.db.DAO.BancoDb;
 @WebServlet("/delete")
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String paramId = request.getParameter("id");
-		
+
 		Integer id = Integer.valueOf(paramId);
-		
-		System.out.println(id);
-		
+
 		BancoDb banco = new BancoDb();
 		banco.deleteCliente(id);
-			
+
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem");
 		rd.forward(request, response);
 	}

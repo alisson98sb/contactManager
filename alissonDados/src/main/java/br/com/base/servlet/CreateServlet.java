@@ -33,8 +33,6 @@ public class CreateServlet extends HttpServlet {
 		BancoDb banco = new BancoDb();
 		banco.addClient(newCliente);
 		
-		System.out.println(clienteContato);
-		
 		//chamar jsp que exibe um cliente
 		RequestDispatcher rd = request.getRequestDispatcher("/clienteInfo.jsp");
 		request.setAttribute("name", clienteNome);
