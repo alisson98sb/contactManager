@@ -23,7 +23,6 @@ public class ListagemServlet extends HttpServlet {
 		BancoDb db = new BancoDb();
 		List<Cliente> clientesLista = db.getClientes();
 
-
 		//seta uma variavel clientes com a lista de clientes para passar ao jsp;
 		request.setAttribute("clientes", clientesLista);
 		

@@ -11,6 +11,20 @@ import br.com.base.constructor.Cliente;
 public class BancoDb {
 	private static Integer id = 1;
 	
+	public void deleteCliente(Integer clientId) {
+		Conexao conexao = new Conexao();
+		Connection conn = conexao.getConnection();
+		
+		String sql = "DELETE FROM projetousers WHERE id ="+clientId+";";
+		
+		try {
+			Statement st = conn.createStatement();
+			st.executeUpdate(sql);
+		} catch (Exception e) {
+			System.err.println("Erro de conexão");
+		}
+	}
+	
 	public String addClient(Cliente cliente) {
 		cliente.setId(id++);
 		

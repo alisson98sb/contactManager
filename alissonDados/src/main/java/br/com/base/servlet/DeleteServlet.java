@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.base.db.Banco;
+import br.com.base.db.DAO.BancoDb;
 
 /**
  * Servlet implementation class DeleteServlet
@@ -25,7 +25,7 @@ public class DeleteServlet extends HttpServlet {
 		
 		System.out.println(id);
 		
-		Banco banco = new Banco();
+		BancoDb banco = new BancoDb();
 		banco.deleteCliente(id);
 			
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem");
@@ -33,3 +33,5 @@ public class DeleteServlet extends HttpServlet {
 	}
 
 }
+
+//// DELETE FROM projetousers WHERE id = x
