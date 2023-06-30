@@ -13,7 +13,7 @@ public class Banco {
 	
 	static {
 		Cliente cliente1 = new Cliente();
-		cliente1.setId(id++);
+
 		cliente1.setName("Alisson Santana");
 		cliente1.setCity("Bauru-sp");
 		cliente1.setPhone("44991770106");
@@ -60,7 +60,7 @@ public class Banco {
 	}
 
 	public void setClientes(Cliente cliente) {
-		cliente.setId(id++);
+
 		Banco.clientesLista.add(cliente);
 	}
 }
