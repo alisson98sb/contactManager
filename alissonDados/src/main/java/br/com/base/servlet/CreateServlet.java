@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.base.constructor.Cliente;
 
 import br.com.base.db.DAO.BancoDb;
+import utils.mascara.Mascaras;
 
 /**
  * Servlet implementation class CreateServlet
@@ -24,8 +25,10 @@ public class CreateServlet extends HttpServlet {
 		String clienteNome = request.getParameter("name");
 		String clienteCidade = request.getParameter("city");
 		String clienteContato = request.getParameter("phone");
+		clienteContato = clienteContato.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 		String clienteInsta = request.getParameter("insta");
 		
+		System.out.println(clienteContato);
 		Cliente newCliente = new Cliente();
 		newCliente.setName(clienteNome);
 		newCliente.setCity(clienteCidade);

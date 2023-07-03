@@ -1,3 +1,4 @@
+<%@page import="utils.mascara.Mascaras"%>
 <%@page import="br.com.base.constructor.Cliente"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,6 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body class="vh-100 bg-dark">
@@ -44,7 +46,7 @@
 						<th scope="row"><%=cliente.getId()%></th>
 						<td><%=cliente.getName()%></td>
 						<td><%=cliente.getCity()%></td>
-						<td><%=cliente.getPhone()%></td>
+						<td><%=Mascaras.mascPhone("(##) #####-####", cliente.getPhone())%></td>
 						<td>
 							<div style="margin-left: 20px;">
 								<a href="https://wa.me/55<%=cliente.getPhone() %>" target="_blank">
