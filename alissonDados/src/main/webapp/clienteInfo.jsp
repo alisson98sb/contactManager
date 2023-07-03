@@ -23,6 +23,7 @@
 						<th scope="col">Nome</th>
 						<th scope="col">Cidade</th>
 						<th scope="col">Numero</th>
+						<th scope="col">Instagram</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,6 +31,7 @@
 						<td>${ name }</td>
 						<td>${ city }</td>
 						<td>${ phone }</td>
+						<td>${ insta }</td>
 					</tr>
 				</tbody>
 			</table>
@@ -49,17 +51,7 @@
 					class="btn btn-dark m-2 border border-secondary">Exibir clientes</button>
 			</form>
 		</div>
-	<!-- <div>
-		<form action="/alissonDados">
-			<input type="submit" value="Inicio" />
-		</form>
-		<form action="/alissonDados/listagem">
-			<input type="submit" value="Exibir clientes" />
-		</form>
-		<form action="/alissonDados/cadastro.jsp">
-			<input type="submit" value="Cadastrar novo cliente" />
-		</form>
-	</div> -->
+
 	</div>
 </body>
 </html>

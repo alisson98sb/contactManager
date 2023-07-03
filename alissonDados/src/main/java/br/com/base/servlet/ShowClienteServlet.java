@@ -35,6 +35,7 @@ public class ShowClienteServlet extends HttpServlet {
 			request.setAttribute("name", cliente.getName());
 			request.setAttribute("city", cliente.getCity());
 			request.setAttribute("phone", cliente.getPhone());
+			request.setAttribute("insta", cliente.getInstagram());
 
 			// chamar jsp de edição
 			RequestDispatcher rd = request.getRequestDispatcher("/update.jsp");

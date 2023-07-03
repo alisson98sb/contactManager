@@ -42,7 +42,7 @@ public class BancoDb {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 		
-		String sql = "Insert INTO projetousers VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"');";
+		String sql = "Insert INTO projetousers VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"','"+cliente.getInstagram()+"');";
 		try {
 			Statement st = conn.createStatement();
 			st.executeUpdate(sql);
@@ -59,7 +59,7 @@ public class BancoDb {
 		Connection conn = conexao.getConnection();
 
 		String sql = "UPDATE  projetousers SET name= '" + newDatas.getName() + "', city= '" + newDatas.getCity()
-				+ "', phone='" + newDatas.getPhone() + "' WHERE id=" + newDatas.getId() + ";";
+				+ "', phone='" + newDatas.getPhone() + "', insta='" + newDatas.getInstagram() + "' WHERE id=" + newDatas.getId() + ";";
 
 		try {
 			Statement st = conn.createStatement();
@@ -94,6 +94,9 @@ public class BancoDb {
 
 				String cPhone = res.getString(4);
 				cliente.setPhone(cPhone);
+				
+				String cInsta = res.getString(5);
+				cliente.setInstagram(cInsta);
 
 			}
 			System.out.println(cliente);
@@ -127,7 +130,7 @@ public class BancoDb {
 
 		List<Cliente> cliente = new ArrayList<>();
 
-		String sql = "select id, name, city, phone from projetousers  ORDER BY name;";
+		String sql = "select id, name, city, phone, insta from projetousers  ORDER BY name;";
 		ResultSet lista;
 		try {
 			Statement st = conn.createStatement();
@@ -147,6 +150,9 @@ public class BancoDb {
 
 				String cPhone = lista.getString(4);
 				cliente1.setPhone(cPhone);
+				
+				String cInsta = lista.getString(5);
+				cliente1.setInstagram(cInsta);
 
 				cliente.add(cliente1);
 			}

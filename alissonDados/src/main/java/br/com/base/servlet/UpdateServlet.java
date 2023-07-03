@@ -30,12 +30,14 @@ public class UpdateServlet extends HttpServlet {
 		String clienteNome = request.getParameter("name");
 		String clienteCidade = request.getParameter("city");
 		String clienteContato = request.getParameter("phone");
+		String clienteInsta = request.getParameter("insta");
 
 		Cliente cliente = new Cliente();
 		cliente.setId(id);
 		cliente.setName(clienteNome);
 		cliente.setCity(clienteCidade);
 		cliente.setPhone(clienteContato);
+		cliente.setInstagram(clienteInsta);
 
 		BancoDb banco = new BancoDb();
 		banco.updateCliente(cliente);

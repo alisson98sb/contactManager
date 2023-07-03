@@ -5,7 +5,8 @@ public class Cliente {
 	private String name;
 	private String city;
 	private String phone;
-	
+	private String instagram;
+
 	public int getId() {
 		return id;
 	}
@@ -36,5 +37,13 @@ public class Cliente {
 	
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public String getInstagram() {
+		return instagram;
+	}
+
+	public void setInstagram(String instagram) {
+		this.instagram = instagram;
 	}
 }

@@ -48,6 +48,17 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col">
+
+					<div class="input-group m-3">
+						<span class="input-group-text" id="inputGroup-sizing-default">Instagram:</span>
+						<input type="text" class="form-control" name="insta"
+							aria-label="Sizing example input"
+							aria-describedby="inputGroup-sizing-default">
+					</div>
+				</div>
+			</div>
 
 
 

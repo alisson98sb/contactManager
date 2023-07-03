@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DigiCon</title>
 </head>
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>

@@ -24,11 +24,13 @@ public class CreateServlet extends HttpServlet {
 		String clienteNome = request.getParameter("name");
 		String clienteCidade = request.getParameter("city");
 		String clienteContato = request.getParameter("phone");
+		String clienteInsta = request.getParameter("insta");
 		
 		Cliente newCliente = new Cliente();
 		newCliente.setName(clienteNome);
 		newCliente.setCity(clienteCidade);
 		newCliente.setPhone(clienteContato);
+		newCliente.setInstagram(clienteInsta);
 		
 		BancoDb banco = new BancoDb();
 		banco.addClient(newCliente);
@@ -38,6 +40,7 @@ public class CreateServlet extends HttpServlet {
 		request.setAttribute("name", clienteNome);
 		request.setAttribute("city", clienteCidade);
 		request.setAttribute("phone", clienteContato);
+		request.setAttribute("insta", clienteInsta);
 		
 		rd.forward(request, response);
 	}
