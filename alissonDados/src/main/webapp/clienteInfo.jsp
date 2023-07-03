@@ -1,3 +1,5 @@
+<%@page import="utils.mascara.Mascaras"%>
+<%@page import="br.com.base.constructor.Cliente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,10 +12,13 @@
 <title>Insert title here</title>
 </head>
 <body  class="vh-100 bg-dark">
+	<%
+		Cliente cliente = (Cliente)request.getAttribute("cliente");
+	%>
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div
 		class="d-flex justify-content-center align-items-center flex-column h-50">
-	<h1 class="text-light ">Informações do cliente: ${ name }</h1>
+	<h1 class="text-light ">Informações do cliente: <%= cliente.getName() %></h1>
 
 
 <div class="table w-75 mt-5">
@@ -27,11 +32,12 @@
 					</tr>
 				</thead>
 				<tbody>
+
 					<tr>
-						<td>${ name }</td>
-						<td>${ city }</td>
-						<td>${ phone }</td>
-						<td>${ insta }</td>
+						<td><%= cliente.getName() %></td>
+ 						<td><%= cliente.getCity() %></td>
+						<td><%=Mascaras.mascPhone("(##) #####-####", cliente.getPhone())%></td>
+						<td><%= cliente.getInstagram() %></td> 
 					</tr>
 				</tbody>
 			</table>

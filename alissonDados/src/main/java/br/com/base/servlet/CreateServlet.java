@@ -40,10 +40,7 @@ public class CreateServlet extends HttpServlet {
 		
 		//chamar jsp que exibe um cliente
 		RequestDispatcher rd = request.getRequestDispatcher("/clienteInfo.jsp");
-		request.setAttribute("name", clienteNome);
-		request.setAttribute("city", clienteCidade);
-		request.setAttribute("phone", clienteContato);
-		request.setAttribute("insta", clienteInsta);
+		request.setAttribute("cliente", newCliente);
 		
 		rd.forward(request, response);
 	}
