@@ -21,9 +21,9 @@
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div
 		class="d-flex justify-content-center align-items-center flex-column h-75">
-		<h1 class="text-light ">Listagem de clientes</h1>
+		<h1 class="text-light " style="margin: 3rem 0;">Listagem de clientes</h1>
 
-		<div class="table w-75 mt-10" style="max-height: 40vh; overflow: auto;" >
+		<div class="table w-75" style="max-height: 70vh; overflow: auto;" >
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>

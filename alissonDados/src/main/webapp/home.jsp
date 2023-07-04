@@ -15,7 +15,7 @@
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 <div class="main d-flex justify-content-center h-50 align-items-center flex-column">
-	<h1 class="text-light">Portal de clientes</h1>
+	<h1 class="text-light" style="margin: 3rem 0">Portal de clientes</h1>
 
 	<div class="main" id="main">
 		<form action="/alissonDados/listagem" method="get">
