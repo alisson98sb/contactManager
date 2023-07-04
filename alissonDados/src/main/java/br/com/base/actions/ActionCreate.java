@@ -1,27 +1,17 @@
-package br.com.base.servlet;
+package br.com.base.actions;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-
 import br.com.base.db.DAO.BancoDb;
-import utils.mascara.Mascaras;
 
-/**
- * Servlet implementation class CreateServlet
- */
-@WebServlet("/adicionar")
-public class CreateServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionCreate {
+	public void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String clienteNome = request.getParameter("name");
 		String clienteCidade = request.getParameter("city");
 		String clienteContato = request.getParameter("phone");
@@ -43,5 +33,4 @@ public class CreateServlet extends HttpServlet {
 		
 		rd.forward(request, response);
 	}
-
 }

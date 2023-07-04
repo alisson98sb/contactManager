@@ -1,29 +1,19 @@
-package br.com.base.servlet;
+package br.com.base.actions;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import br.com.base.constructor.Cliente;
 import br.com.base.db.DAO.BancoDb;
 
-/**
- * Servlet implementation class ListagemServlet
- */
-@WebServlet("/listagem")
-public class ListagemServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+public class ActionList {
+	public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		BancoDb db = new BancoDb();
 		List<Cliente> clientesLista = db.getClientes();
 		
@@ -33,5 +23,6 @@ public class ListagemServlet extends HttpServlet {
 		// chama o jsp da pagina de listagem
 		RequestDispatcher rd = request.getRequestDispatcher("/listagem.jsp");
 		rd.forward(request, response);
-	}
+		}
+
 }
