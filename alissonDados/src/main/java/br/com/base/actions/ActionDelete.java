@@ -19,7 +19,7 @@ public class ActionDelete {
 		BancoDb banco = new BancoDb();
 		banco.deleteCliente(id);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/servelet?action=list");
+		RequestDispatcher rd = request.getRequestDispatcher("servlet?action=list");
 		rd.forward(request, response);
 
 	}
