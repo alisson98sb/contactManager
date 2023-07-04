@@ -99,7 +99,6 @@ public class BancoDb {
 				cliente.setInstagram(cInsta);
 
 			}
-			System.out.println(cliente);
 
 			return cliente;
 

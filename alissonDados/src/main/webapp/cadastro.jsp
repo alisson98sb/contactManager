@@ -28,9 +28,6 @@
 		  event.target.value = value;	
 	}
 	
-	function ValidaCampo() {
-		if(! event.target.value) event.targe.value = ""
-	}
 </script>
 
 
@@ -44,10 +41,10 @@
 			<div class="row">
 				<div class="col">
 					<div class="input-group m-3">
-						<span class="input-group-text " id="inputGroup-sizing-default">Nome:</span>
+						<span class="input-group-text " id="inputGroup-sizing-default">Nome Completo:</span>
 						<input type="text" class="form-control" name="name"
 							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default">
+							aria-describedby="inputGroup-sizing-default" pattern=".{7,50}" title="nome + sobrenome (de 7 a 50 caracteres)" required>
 					</div>
 				</div>
 				<div class="col">
@@ -55,7 +52,7 @@
 						<span class="input-group-text" id="inputGroup-sizing-default">Cidade:</span>
 						<input type="text" class="form-control" name="city"
 							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default">
+							aria-describedby="inputGroup-sizing-default" pattern=".{4,30}" required>
 					</div>
 				</div>
 			</div>
@@ -63,9 +60,9 @@
 				<div class="col">
 					<div class="input-group m-3">
 						<span class="input-group-text" id="inputGroup-sizing-default">Contato:</span>
-						<input type="text" class="form-control  phone" maxlength="15" name="phone"
+						<input type="text" class="form-control  phone" pattern=".{15,15}" maxlength="15" title="(99) 9 9999-9999"  name="phone"
 							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default" onkeyup="TestaSenha(this)" onchange="ValidaCampo(this)">
+							aria-describedby="inputGroup-sizing-default" onkeyup="TestaSenha(this)" required>
 					</div>
 				</div>
 			</div>
@@ -76,7 +73,7 @@
 						<span class="input-group-text" id="inputGroup-sizing-default">Instagram:</span>
 						<input type="text" class="form-control" name="insta"
 							aria-label="Sizing example input"
-							aria-describedby="inputGroup-sizing-default">
+							aria-describedby="inputGroup-sizing-default" maxlength="15">
 					</div>
 				</div>
 			</div>

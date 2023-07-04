@@ -28,7 +28,6 @@ public class CreateServlet extends HttpServlet {
 		clienteContato = clienteContato.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 		String clienteInsta = request.getParameter("insta");
 		
-		System.out.println(clienteContato);
 		Cliente newCliente = new Cliente();
 		newCliente.setName(clienteNome);
 		newCliente.setCity(clienteCidade);
