@@ -1,4 +1,3 @@
-<%@page import="utils.mascara.Mascaras"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <html>
@@ -13,13 +12,13 @@
 <meta charset="UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
-<script src="./teste.js"></script>
+
 <title>Insert title here</title>
 </head>
 
-<script>
-
+<script >
 	function TestaSenha() {
+		 console.log("OK")
 		let value = event.target.value;
 		 if (!value) return ""
 		  value = value.replace(/\D/g,'')
@@ -27,7 +26,6 @@
 		  value = value.replace(/(\d)(\d{4})$/,"$1-$2")
 		  event.target.value = value;	
 	}
-	
 </script>
 
 
@@ -36,7 +34,7 @@
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<h1>Cadastrar novo cliente</h1>
 	<div class="forms d-flex justify-content-center">
-		<form action="/alissonDados/adicionar" method="post"
+		<form action="/alissonDados/servlet?action=create" method="post"
 			style="text-align: end;">
 			<div class="row">
 				<div class="col">

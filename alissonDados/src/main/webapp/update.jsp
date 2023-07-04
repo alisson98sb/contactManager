@@ -12,13 +12,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<script >
+	function TestaSenha() {
+		 console.log("OK")
+		let value = event.target.value;
+		 if (!value) return ""
+		  value = value.replace(/\D/g,'')
+		  value = value.replace(/(\d{2})(\d)/,"($1) $2")
+		  value = value.replace(/(\d)(\d{4})$/,"$1-$2")
+		  event.target.value = value;	
+	}
+</script>
+
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div class="d-flex justify-content-center align-items-center flex-column h-50 ">
 		<h1 class="text-light">Atualizar informações</h1>
 
 		<div class="forms d-flex justify-content-center mt-5">
-			<form action="/alissonDados/update" method="post"
+			<form action="/alissonDados/servlet?action=update" method="post"
 				style="text-align: end;">
 				<div class="row">
 					<div class="col">
@@ -43,9 +56,9 @@
 
 						<div class="input-group m-3">
 							<span class="input-group-text" id="inputGroup-sizing-default">Contato:</span>
-							<input type="text" class="form-control" name="phone"
-								value="${ phone }" aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default">
+							<input type="text" class="form-control  phone" value="${ phone }"  pattern=".{15,15}" maxlength="15" title="(99) 9 9999-9999"  name="phone"
+						aria-label="Sizing example input"
+						aria-describedby="inputGroup-sizing-default" onkeyup="TestaSenha(this)" required>
 						</div>
 					</div>
 				</div>
