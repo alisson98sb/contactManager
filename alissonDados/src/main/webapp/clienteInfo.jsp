@@ -52,7 +52,7 @@
 					class="btn btn-dark m-2 border border-secondary">Adicionar
 					novo cliente</button>
 			</form>
-			<form action="/alissonDados/servlet?action=list" method="post">
+			<form action="/alissonDados/servlet?action=ActionList" method="post">
 				<button type="submit"
 					class="btn btn-dark m-2 border border-secondary">Exibir clientes</button>
 			</form>

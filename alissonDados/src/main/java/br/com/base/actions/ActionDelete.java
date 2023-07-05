@@ -18,6 +18,6 @@ public class ActionDelete {
 		BancoDb banco = new BancoDb();
 		banco.deleteCliente(id);
 
-		return "servle?action=list";
+		return "servle?action=ActionList";
 	}
 }

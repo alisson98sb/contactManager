@@ -18,7 +18,7 @@
 	<h1 class="text-light" style="margin: 3rem 0">Portal de clientes</h1>
 
 	<div class="main" id="main">
-		<form action="/alissonDados/servlet?action=list" method="post">
+		<form action="/alissonDados/servlet?action=ActionList" method="post">
 			<button type="submit" class="btn btn-dark m-2 border border-secondary">Exibir lista de clientes</button>
 		</form>
 
