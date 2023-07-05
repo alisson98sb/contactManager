@@ -3,7 +3,6 @@ package br.com.base.actions;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +11,7 @@ import br.com.base.constructor.Cliente;
 import br.com.base.db.DAO.BancoDb;
 
 public class ActionUpdate {
-	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 
@@ -35,8 +34,8 @@ public class ActionUpdate {
 		List<Cliente> clientes = banco.getClientes();
 
 		request.setAttribute("clientes", clientes);
-		// chamar jsp de listagem apos concluir a edição
-		RequestDispatcher rd = request.getRequestDispatcher("/listagem.jsp");
-		rd.forward(request, response);
+		
+		return "/listagem.jsp";
+		
 	}
 }

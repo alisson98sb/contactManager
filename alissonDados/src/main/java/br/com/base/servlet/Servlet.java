@@ -2,6 +2,7 @@ package br.com.base.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,28 +27,34 @@ public class Servlet extends HttpServlet {
 		String paramAction = request.getParameter("action");
 		System.out.println(paramAction);
 		
+		String route = null;
+		
 		if(paramAction.equals("list")) {
 			
 			ActionList listarCliente = new ActionList();
-			listarCliente.listar(request, response);
+			route = listarCliente.listar(request, response);
 		} else if(paramAction.equals("cliente")) {
 			
 			ActionShowCliente clienteServlet = new ActionShowCliente();
-			clienteServlet.show(request, response);
+			route = clienteServlet.show(request, response);
 		} else if (paramAction.equals("create")) {
 			
 			ActionCreate createServlet = new ActionCreate();
-			createServlet.create(request, response);
+			route = createServlet.create(request, response);
 					
 		} else if(paramAction.equals("delete")) {
 			
 			ActionDelete removeServet = new ActionDelete();
-			removeServet.delete(request, response);
+			route = removeServet.delete(request, response);
 		} else if (paramAction.equals("update")) {
 			
 			ActionUpdate updateServlet = new ActionUpdate();
-			updateServlet.update(request, response);
+			route = updateServlet.update(request, response);
 		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher(route);
+		rd.forward(request, response);
+		
 	}
 
 }
