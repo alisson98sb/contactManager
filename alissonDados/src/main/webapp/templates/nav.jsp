@@ -13,7 +13,7 @@
 					aria-current="page" href="/alissonDados">Home</a></li>
 				<li class="nav-item">
 					<form action="/alissonDados/listagem" method="get">
-						<a class="nav-link" href="/alissonDados/servlet?action=list&id=2">Listagem</a>
+						<a class="nav-link" href="/alissonDados/servlet?action=ActionList&id=2">Listagem</a>
 					</form>
 				</li>
 				<li class="nav-item">
