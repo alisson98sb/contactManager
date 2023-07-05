@@ -34,7 +34,7 @@
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<h1>Cadastrar novo cliente</h1>
 	<div class="forms d-flex justify-content-center">
-		<form action="/alissonDados/servlet?action=create" method="post"
+		<form action="/alissonDados/servlet?action=ActionCreate" method="post"
 			style="text-align: end;">
 			<div class="row">
 				<div class="col">

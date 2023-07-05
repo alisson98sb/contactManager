@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.base.constructor.Cliente;
 import br.com.base.db.DAO.BancoDb;
 
-public class ActionShowCliente {
-	public String show(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionShowCliente implements Acao {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 

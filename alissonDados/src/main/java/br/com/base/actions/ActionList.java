@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.base.constructor.Cliente;
 import br.com.base.db.DAO.BancoDb;
 
-public class ActionList {
-	public String listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionList implements Acao{
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		BancoDb db = new BancoDb();
 		List<Cliente> clientesLista = db.getClientes();

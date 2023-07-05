@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.db.DAO.BancoDb;
 
-public class ActionDelete {
-	public String delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionDelete implements Acao {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String paramId = request.getParameter("id");
 
@@ -18,6 +18,6 @@ public class ActionDelete {
 		BancoDb banco = new BancoDb();
 		banco.deleteCliente(id);
 
-		return "servle?action=ActionList";
+		return "servlet?action=ActionList";
 	}
 }

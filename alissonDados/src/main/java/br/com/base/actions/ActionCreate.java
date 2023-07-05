@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.base.constructor.Cliente;
 import br.com.base.db.DAO.BancoDb;
 
-public class ActionCreate {
-	public String create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionCreate implements Acao {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String clienteNome = request.getParameter("name");
 		String clienteCidade = request.getParameter("city");
 		String clienteContato = request.getParameter("phone");
