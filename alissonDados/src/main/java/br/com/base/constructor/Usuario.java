@@ -3,6 +3,15 @@ package br.com.base.constructor;
 public class Usuario {
 	private String login;
 	private String senha;
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getLogin() {
 		return login;

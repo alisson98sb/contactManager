@@ -27,7 +27,7 @@
 
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>
-	<div class="d-flex justify-content-center align-items-center flex-column h-50 ">
+	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
 		
 		<h1 class="text-light">Atualizar informações</h1>
 

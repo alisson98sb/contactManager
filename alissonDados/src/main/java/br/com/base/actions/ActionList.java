@@ -15,7 +15,7 @@ public class ActionList implements Acao{
 		
 		ClientesDb db = new ClientesDb();
 		List<Cliente> clientesLista = db.getClientes();
-		
+				
 		// seta uma variavel clientes com a lista de clientes para passar ao jsp;
 		request.setAttribute("clientes", clientesLista);
 
