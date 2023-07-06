@@ -1,4 +1,4 @@
-package br.com.base.servletOld;
+package br.com.base.servlet;
 
 import java.io.IOException;
 
