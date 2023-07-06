@@ -32,7 +32,7 @@
 		<h1 class="text-light">Atualizar informações</h1>
 
 		<div class="forms d-flex justify-content-center mt-5">
-			<form action="/alissonDados/servlet?action=ActionUpdate" method="post"
+			<form action="/alissonDados/servlet?action=ActionShowUpdatedInfo" method="post"
 				style="text-align: end;">
 				<div class="row">
 					<div class="col">

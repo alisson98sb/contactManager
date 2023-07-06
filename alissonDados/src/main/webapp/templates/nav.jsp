@@ -13,12 +13,12 @@
 					aria-current="page" href="/alissonDados">Home</a></li>
 				<li class="nav-item">
 					<form action="/alissonDados/listagem" method="get">
-						<a class="nav-link" href="/alissonDados/servlet?action=ActionList&id=2">Listagem</a>
+						<a class="nav-link" href="/alissonDados/servlet?action=ActionList">Listagem</a>
 					</form>
 				</li>
 				<li class="nav-item">
-					<form action="/alissonDados/cadastro.jsp">
-						<a class="nav-link" href="/alissonDados/cadastro.jsp">Adicionar</a>
+					<form>
+						<a class="nav-link" href="/alissonDados/servlet?action=ActionCadastroForm">Adicionar</a>
 					</form>
 				</li>
 			</ul>
