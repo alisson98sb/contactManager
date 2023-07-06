@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.base.constructor.Usuario;
 import br.com.base.db.DAO.UsuariosDb;
@@ -22,6 +23,8 @@ public class Login implements Acao {
 			
 			if(user.getId() != 0) {
 				System.out.println(user.getId());
+				HttpSession sessao = request.getSession();
+				sessao.setAttribute("usuarioLogado", user);
 				return "servlet?action=ActionList";
 			} else {
 				System.out.println(user);
