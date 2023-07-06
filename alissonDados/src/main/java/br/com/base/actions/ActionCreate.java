@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.DAO.BancoDb;
+import br.com.base.db.DAO.ClientesDb;
 
 public class ActionCreate implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +23,7 @@ public class ActionCreate implements Acao {
 		newCliente.setPhone(clienteContato);
 		newCliente.setInstagram(clienteInsta);
 		
-		BancoDb banco = new BancoDb();
+		ClientesDb banco = new ClientesDb();
 		banco.addClient(newCliente);
 		
 		request.setAttribute("cliente", newCliente);

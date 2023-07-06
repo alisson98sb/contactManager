@@ -8,7 +8,7 @@ import java.util.List;
 
 import br.com.base.constructor.Cliente;
 
-public class BancoDb {
+public class ClientesDb {
 	private int generateId() {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();

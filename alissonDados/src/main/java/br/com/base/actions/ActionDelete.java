@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.base.db.DAO.BancoDb;
+import br.com.base.db.DAO.ClientesDb;
 
 public class ActionDelete implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -15,7 +15,7 @@ public class ActionDelete implements Acao {
 
 		Integer id = Integer.valueOf(paramId);
 
-		BancoDb banco = new BancoDb();
+		ClientesDb banco = new ClientesDb();
 		banco.deleteCliente(id);
 
 		return "servlet?action=ActionList";

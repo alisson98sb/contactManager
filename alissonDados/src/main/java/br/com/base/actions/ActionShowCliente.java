@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.DAO.BancoDb;
+import br.com.base.db.DAO.ClientesDb;
 
 public class ActionShowCliente implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 
-		BancoDb banco = new BancoDb();
+		ClientesDb banco = new ClientesDb();
 		Cliente cliente = banco.getCliente(id);
 
 		String updating = request.getParameter("update");
