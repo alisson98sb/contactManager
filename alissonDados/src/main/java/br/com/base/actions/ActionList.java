@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.DAO.BancoDb;
+import br.com.base.db.DAO.ClientesDb;
 
-public class ActionList {
-	public String listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionList implements Acao{
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		BancoDb db = new BancoDb();
+		ClientesDb db = new ClientesDb();
 		List<Cliente> clientesLista = db.getClientes();
-		
+				
 		// seta uma variavel clientes com a lista de clientes para passar ao jsp;
 		request.setAttribute("clientes", clientesLista);
 

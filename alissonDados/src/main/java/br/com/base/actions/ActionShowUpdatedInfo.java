@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.DAO.BancoDb;
+import br.com.base.db.DAO.ClientesDb;
 
-public class ActionUpdate {
-	public String update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionShowUpdatedInfo implements Acao {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 
@@ -28,14 +28,14 @@ public class ActionUpdate {
 		cliente.setPhone(clienteContato);
 		cliente.setInstagram(clienteInsta);
 
-		BancoDb banco = new BancoDb();
+		ClientesDb banco = new ClientesDb();
 		banco.updateCliente(cliente);
 
 		List<Cliente> clientes = banco.getClientes();
 
 		request.setAttribute("clientes", clientes);
 		
-		return "/listagem.jsp";
+		return "/servlet?action=ActionList";
 		
 	}
 }

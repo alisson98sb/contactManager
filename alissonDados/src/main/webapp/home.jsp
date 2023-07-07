@@ -22,7 +22,7 @@
 			<button type="submit" class="btn btn-dark m-2 border border-secondary">Exibir lista de clientes</button>
 		</form>
 
-		<form action="/alissonDados/cadastro.jsp">
+		<form action="/alissonDados/servlet?action=ActionCadastroForm" method="post">
 			<button type="submit" class="btn btn-dark m-2 border border-secondary">Adicionar novo cliente</button>
 		</form>
 	</div>

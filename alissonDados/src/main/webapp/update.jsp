@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="UTF-8"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +27,12 @@
 
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>
-	<div class="d-flex justify-content-center align-items-center flex-column h-50 ">
-		<h1 class="text-light">Atualizar informaÃ§Ãµes</h1>
+	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
+		
+		<h1 class="text-light">Atualizar informações</h1>
 
 		<div class="forms d-flex justify-content-center mt-5">
-			<form action="/alissonDados/servlet?action=update" method="post"
+			<form action="/alissonDados/servlet?action=ActionShowUpdatedInfo" method="post"
 				style="text-align: end;">
 				<div class="row">
 					<div class="col">

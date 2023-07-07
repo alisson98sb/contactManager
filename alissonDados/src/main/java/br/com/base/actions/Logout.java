@@ -5,19 +5,17 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.base.db.DAO.ClientesDb;
+public class Logout implements Acao {
 
-public class ActionDelete implements Acao {
+	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String paramId = request.getParameter("id");
-
-		Integer id = Integer.valueOf(paramId);
-
-		ClientesDb banco = new ClientesDb();
-		banco.deleteCliente(id);
-
-		return "servlet?action=ActionList";
+		
+		HttpSession sessao = request.getSession();
+		sessao.invalidate();
+		
+		return "servlet?action=LoginForm";
 	}
+
 }

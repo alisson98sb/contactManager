@@ -6,18 +6,24 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.base.constructor.Cliente;
 import br.com.base.db.DAO.ClientesDb;
 
-public class ActionDelete implements Acao {
+public class ActionUpdateClienteForm implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		String paramId = request.getParameter("id");
-
 		Integer id = Integer.valueOf(paramId);
 
 		ClientesDb banco = new ClientesDb();
-		banco.deleteCliente(id);
+		Cliente cliente = banco.getCliente(id);
 
-		return "servlet?action=ActionList";
+		request.setAttribute("id", cliente.getId());
+		request.setAttribute("name", cliente.getName());
+		request.setAttribute("city", cliente.getCity());
+		request.setAttribute("phone", cliente.getPhone());
+		request.setAttribute("insta", cliente.getInstagram());
+
+		return "/update.jsp";
+	
 	}
 }

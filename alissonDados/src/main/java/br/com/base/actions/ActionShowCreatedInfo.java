@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.constructor.Cliente;
-import br.com.base.db.DAO.BancoDb;
+import br.com.base.db.DAO.ClientesDb;
 
-public class ActionCreate {
-	public String create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ActionShowCreatedInfo implements Acao {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String clienteNome = request.getParameter("name");
 		String clienteCidade = request.getParameter("city");
 		String clienteContato = request.getParameter("phone");
@@ -23,7 +23,7 @@ public class ActionCreate {
 		newCliente.setPhone(clienteContato);
 		newCliente.setInstagram(clienteInsta);
 		
-		BancoDb banco = new BancoDb();
+		ClientesDb banco = new ClientesDb();
 		banco.addClient(newCliente);
 		
 		request.setAttribute("cliente", newCliente);

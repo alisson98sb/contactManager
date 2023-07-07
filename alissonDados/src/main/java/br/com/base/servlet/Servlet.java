@@ -8,12 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.base.actions.ActionCreate;
-import br.com.base.actions.ActionShowCliente;
-import br.com.base.actions.ActionDelete;
-import br.com.base.actions.ActionList;
-import br.com.base.actions.ActionUpdate;
+import br.com.base.actions.Acao;
 
 /**
  * Servlet implementation class Servlet
@@ -23,33 +20,30 @@ public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String paramAction = request.getParameter("action");
+		
+		HttpSession sessao = request.getSession();		
+		boolean usuarioNaoLogado = sessao.getAttribute("usuarioLogado") == null;
+		boolean ehUmaPaginaProtegida = ! (paramAction.equals("Login") || paramAction.equals("LoginForm"));
+		
+		
+		if(ehUmaPaginaProtegida && usuarioNaoLogado) {
+			response.sendRedirect("servlet?action=LoginForm");
+			return;
+		}
+		
+		
+		String nomeDaClasse = "br.com.base.actions." + paramAction;
 
 		String route = null;
 		
-		
-		if(paramAction.equals("ActionList")) {
-			ActionList listarCliente = new ActionList();
-			route = listarCliente.listar(request, response);
+		try {
+			Class classe = Class.forName(nomeDaClasse);
+			Acao acao = (Acao) classe.newInstance();
+			route = acao.executa(request, response);
 			
-		} else if(paramAction.equals("cliente")) {
-			ActionShowCliente clienteServlet = new ActionShowCliente();
-			route = clienteServlet.show(request, response);
-			
-		} else if (paramAction.equals("create")) {
-			ActionCreate createServlet = new ActionCreate();
-			route = createServlet.create(request, response);
-			
-					
-		} else if(paramAction.equals("delete")) {
-			ActionDelete removeServet = new ActionDelete();
-			route = removeServet.delete(request, response);
-			
-		} else if (paramAction.equals("update")) {
-			ActionUpdate updateServlet = new ActionUpdate();
-			route = updateServlet.update(request, response);
-			
+		} catch (Exception e) {
+			throw new ServletException(e);
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(route);

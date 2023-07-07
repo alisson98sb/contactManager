@@ -8,12 +8,12 @@ import java.util.List;
 
 import br.com.base.constructor.Cliente;
 
-public class BancoDb {
+public class ClientesDb {
 	private int generateId() {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 		
-		String sql = "SELECT MAX(id) FROM projetousers;";
+		String sql = "SELECT MAX(id) FROM projetoclientes;";
 		
 		ResultSet teste; 
 		try {
@@ -42,7 +42,7 @@ public class BancoDb {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 		
-		String sql = "Insert INTO projetousers VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"','"+cliente.getInstagram()+"');";
+		String sql = "Insert INTO projetoclientes VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"','"+cliente.getInstagram()+"');";
 		try {
 			Statement st = conn.createStatement();
 			st.executeUpdate(sql);
@@ -58,7 +58,7 @@ public class BancoDb {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 
-		String sql = "UPDATE  projetousers SET name= '" + newDatas.getName() + "', city= '" + newDatas.getCity()
+		String sql = "UPDATE  projetoclientes SET name= '" + newDatas.getName() + "', city= '" + newDatas.getCity()
 				+ "', phone='" + newDatas.getPhone() + "', insta='" + newDatas.getInstagram() + "' WHERE id=" + newDatas.getId() + ";";
 
 		try {
@@ -75,7 +75,7 @@ public class BancoDb {
 		Connection conn = conexao.getConnection();
 		Cliente cliente = new Cliente();
 
-		String sql = "SELECT * FROM projetousers  WHERE id = " + clientId + ";";
+		String sql = "SELECT * FROM projetoclientes  WHERE id = " + clientId + ";";
 		ResultSet res;
 		try {
 			Statement st = conn.createStatement();
@@ -113,7 +113,7 @@ public class BancoDb {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 
-		String sql = "DELETE FROM projetousers WHERE id =" + clientId + ";";
+		String sql = "DELETE FROM projetoclientes WHERE id =" + clientId + ";";
 
 		try {
 			Statement st = conn.createStatement();
@@ -129,7 +129,7 @@ public class BancoDb {
 
 		List<Cliente> cliente = new ArrayList<>();
 
-		String sql = "select id, name, city, phone, insta from projetousers  ORDER BY name;";
+		String sql = "select id, name, city, phone, insta from projetoclientes  ORDER BY name;";
 		ResultSet lista;
 		try {
 			Statement st = conn.createStatement();
