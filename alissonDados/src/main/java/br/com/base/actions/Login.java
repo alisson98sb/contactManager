@@ -15,12 +15,12 @@ public class Login implements Acao {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 			String login = request.getParameter("user");
 			String password = request.getParameter("password");
 			
 			UsuariosDb dbUser = new UsuariosDb();
 			Usuario user = dbUser.getUser(login, password);				
-			
 			if(user.getId() != 0) {
 				HttpSession sessao = request.getSession();
 				sessao.setAttribute("usuarioLogado", user);
