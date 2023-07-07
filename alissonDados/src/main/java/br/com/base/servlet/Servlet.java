@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.base.actions.Acao;
 
-/**
- * Servlet implementation class Servlet
- */
 @WebServlet(urlPatterns = "/servlet")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

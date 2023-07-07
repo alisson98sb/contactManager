@@ -17,12 +17,15 @@ import javax.servlet.http.HttpSession;
 public class AutorizacaoFilter extends HttpFilter implements Filter {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
+		
+		System.out.println("Autorização FIlter");
+		
+		
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
-		  
-		
+		 
 		
 		String paramAction = request.getParameter("action");
 		
