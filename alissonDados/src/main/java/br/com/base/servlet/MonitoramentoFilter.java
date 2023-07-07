@@ -15,15 +15,13 @@ public class MonitoramentoFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("Monitoramento FIlter");
-		// TODO Auto-generated method stub
+
 		long antes = System.currentTimeMillis();
 		
 		//executa aplicação
 		chain.doFilter(request, response);
 		
 		long depois = System.currentTimeMillis();
-		System.out.println("Tempo de execução: " + (depois - antes));
 	}
 
 }

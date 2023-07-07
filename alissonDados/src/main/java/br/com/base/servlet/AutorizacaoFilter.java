@@ -20,9 +20,6 @@ public class AutorizacaoFilter extends HttpFilter implements Filter {
 	
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
 		
-		System.out.println("Autorização FIlter");
-		
-		
 		HttpServletRequest request = (HttpServletRequest) servletRequest;
 		HttpServletResponse response = (HttpServletResponse) servletResponse;
 		 
