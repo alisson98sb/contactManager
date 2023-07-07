@@ -22,12 +22,10 @@ public class Login implements Acao {
 			Usuario user = dbUser.getUser(login, password);				
 			
 			if(user.getId() != 0) {
-				System.out.println(user.getId());
 				HttpSession sessao = request.getSession();
 				sessao.setAttribute("usuarioLogado", user);
 				return "servlet?action=ActionList";
 			} else {
-				System.out.println(user);
 				return "servlet?action=LoginForm";
 			}
 					

@@ -18,7 +18,6 @@
 </head>
 
 <body class="vh-100 bg-dark">
-
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
 
@@ -50,9 +49,8 @@
 				</div>
 	
 	
-	
+				<button type="button" class="btn btn-outline-secondary m-2">Cadastre-se</button>
 				<button type="submit" class="btn btn-outline-secondary m-2">Entrar</button>
-	
 			</form>
 		</div>
 	</div>
