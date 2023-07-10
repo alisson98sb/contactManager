@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.base.constructor.Cliente;
+import br.com.base.constructor.Usuario;
 
 public class ClientesDb {
 	private int generateId() {
@@ -42,7 +43,7 @@ public class ClientesDb {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 		
-		String sql = "Insert INTO projetoclientes VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"','"+cliente.getInstagram()+"');";
+		String sql = "Insert INTO projetoclientes VALUES ("+cliente.getId()+", '"+cliente.getName()+"','"+cliente.getCity()+"','"+cliente.getPhone()+"','"+cliente.getInstagram()+"','"+cliente.getUser_id()+"');";
 		try {
 			Statement st = conn.createStatement();
 			st.executeUpdate(sql);
@@ -123,13 +124,14 @@ public class ClientesDb {
 		}
 	}
 
-	public List<Cliente> getClientes() {	
+	//select all
+	public List<Cliente> getClientes(Usuario user) {	
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 
 		List<Cliente> cliente = new ArrayList<>();
 
-		String sql = "select id, name, city, phone, insta from projetoclientes  ORDER BY name;";
+		String sql = "select id, name, city, phone, insta from projetoclientes WHERE user_id=" + user.getId() + " ORDER BY id desc;";
 		ResultSet lista;
 		try {
 			Statement st = conn.createStatement();

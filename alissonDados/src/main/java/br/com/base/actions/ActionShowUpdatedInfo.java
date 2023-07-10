@@ -6,12 +6,18 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.base.constructor.Cliente;
+import br.com.base.constructor.Usuario;
 import br.com.base.db.DAO.ClientesDb;
 
 public class ActionShowUpdatedInfo implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//dados do usuário logado
+		HttpSession sessao = request.getSession();		
+		Usuario user = (Usuario)sessao.getAttribute("usuarioLogado");
+
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 
@@ -20,6 +26,7 @@ public class ActionShowUpdatedInfo implements Acao {
 		String clienteContato = request.getParameter("phone");
 		clienteContato = clienteContato.replace("(", "").replace(")", "").replace("-", "").replace(" ", "");
 		String clienteInsta = request.getParameter("insta");
+		
 
 		Cliente cliente = new Cliente();
 		cliente.setId(id);
@@ -31,7 +38,7 @@ public class ActionShowUpdatedInfo implements Acao {
 		ClientesDb banco = new ClientesDb();
 		banco.updateCliente(cliente);
 
-		List<Cliente> clientes = banco.getClientes();
+		List<Cliente> clientes = banco.getClientes(user);
 
 		request.setAttribute("clientes", clientes);
 		

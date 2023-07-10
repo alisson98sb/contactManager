@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 
 @WebFilter("/servlet")
 public class MonitoramentoFilter implements Filter{
-
+//Não está em uso, apenas para exemplo de como funciona a camada de servlet
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
