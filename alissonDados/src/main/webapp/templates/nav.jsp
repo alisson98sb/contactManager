@@ -34,6 +34,12 @@
 					<a class="nav-link active" aria-current="page" href="/alissonDados/servlet?action=Logout">Sair</a>
 				</li>
 			</ul>
+			<%} else {%>
+						<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/alissonDados/servlet?action=Login">Login</a>
+				</li>
+			</ul>
 			<%} %>
 		</div>
 	</div>
