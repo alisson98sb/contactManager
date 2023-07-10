@@ -20,9 +20,7 @@
 	
 		<div class="main" id="main">
 			<p class="fs-3 text-light text-center">Agora você pode ter todos os seus contatos em um só lugar, com acesso rápido e fácil aos perfis das principais redes sociais, permitindo que você se mantenha conectado, atualizado e em contato com seus amigos, familiares e colegas de trabalho.</p>
-<!-- 			<p class="fs-3 text-light text-center">Descubra uma maneira inteligente e simplificada de gerenciar seus contatos com nosso inovador sistema DigiCon! </p>
- 			<p class="fs-3 text-light text-center">Simplifique sua vida digital e aproveite ao máximo suas redes sociais com nosso sistema de gerenciamento de contatos com links diretos para as principais plataformas</p>
- -->		</div>
+		</div>
 	</div>
 </div>
 </body>
