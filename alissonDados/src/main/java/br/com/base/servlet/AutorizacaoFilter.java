@@ -28,7 +28,7 @@ public class AutorizacaoFilter extends HttpFilter implements Filter {
 		
 		HttpSession sessao = request.getSession();		
 		boolean usuarioNaoLogado = sessao.getAttribute("usuarioLogado") == null;
-		boolean ehUmaPaginaProtegida = ! (paramAction.equals("Login") || paramAction.equals("LoginForm"));
+		boolean ehUmaPaginaProtegida = ! (paramAction.equals("Login") || paramAction.equals("LoginForm") || paramAction.equals("CadastroUserForm") || paramAction.equals("CadastroUser"));
 		
 		
 		if(ehUmaPaginaProtegida && usuarioNaoLogado) {

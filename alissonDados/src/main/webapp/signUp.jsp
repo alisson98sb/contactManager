@@ -21,11 +21,11 @@
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
 
-		<h1 class="text-light">Login</h1>
+		<h1 class="text-light">Cadastre-se</h1>
 		
 		<div class="forms d-flex justify-content-center mt-5">
-			<form action="/alissonDados/servlet?action=Login" method="post"
-				style="text-align: end;">
+			<form action="/alissonDados/servlet?action=CadastroUser" method="post"
+				style="text-align: end;" oninput='confirmPassword.setCustomValidity(confirmPassword.value != password.value ? "Passwords do not match." : "")'>>
 				<div class="row">
 					<div class="col">
 						<div class="input-group m-3">
@@ -43,17 +43,23 @@
 							<span class="input-group-text" id="inputGroup-sizing-default">Senha:</span>
 							<input type="password" class="form-control" name="password"
 								aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default" maxlength="15">
+								aria-describedby="inputGroup-sizing-default" maxlength="15" required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+	
+						<div class="input-group m-3">
+							<span class="input-group-text" id="inputGroup-sizing-default">Confirmar senha:</span>
+							<input type="password" class="form-control" name="confirmPassword"
+								aria-label="Sizing example input"
+								aria-describedby="inputGroup-sizing-default" maxlength="15" required>
 						</div>
 					</div>
 				</div>
 	
-				<a href="/alissonDados/servlet?action=CadastroUserForm" style="text-decoration: none; color: currentcolor;">
-					<button type="button" class="btn btn-outline-secondary m-2" >
-						Cadastre-se
-					</button>					
-				</a>
-				<button type="submit" class="btn btn-outline-secondary m-2">Entrar</button>
+				<button type="submit" class="btn btn-outline-secondary m-2">Salvar</button>
 			</form>
 		</div>
 	</div>

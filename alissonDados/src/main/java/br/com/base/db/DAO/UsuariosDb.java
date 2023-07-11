@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import br.com.base.constructor.Cliente;
 import br.com.base.constructor.Usuario;
 
 public class UsuariosDb {
@@ -12,7 +11,7 @@ public class UsuariosDb {
 		Conexao conexao = new Conexao();
 		Connection conn = conexao.getConnection();
 		
-		String sql = "SELECT MAX(id) FROM projetoclientes;";
+		String sql = "SELECT MAX(id) FROM projetousers;";
 		
 		ResultSet teste; 
 		try {
@@ -62,6 +61,26 @@ public class UsuariosDb {
 
 		} catch (Exception e) {
 			System.err.println("Erro de conexão");
+		}
+
+		return null;
+	}
+
+	public Usuario setUser(String login, String password) {
+		Conexao conexao = new Conexao();
+		Connection conn = conexao.getConnection();
+		
+		int id = this.generateId();
+		id++;		
+		
+		String sql = "INSERT INTO projetousers VALUES ("+ id +", '"+login+"', '"+password+"');";
+
+		try {
+			Statement st = conn.createStatement();
+			st.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			System.err.println("Erro de conexão ADDcLIENTE");
 		}
 
 		return null;
