@@ -43,9 +43,11 @@
 	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
 		
 		<form action="/alissonDados/servlet?action=ImportXml"  method="post">
-		  <input type="file" id="arquivo" name="arquivo" style="background: papayawhip;" onchange="ReadFile(this)">
-		  <input type="text" height="8" width="50" id="preview" name="contatos">
-		  <input type="submit"> 
+		  <input type="file" id="arquivo" name="arquivo" onchange="ReadFile(this)" style="background: transparent;color: white;">
+		  <button type="submit" class="btn btn-dark m-2 border border-secondary">Importar</button>
+		  <div>
+			  <input type="text" height="8" width="50" id="preview" name="contatos" hidden>
+		  </div>
 		</form>
 		
 	</div>
