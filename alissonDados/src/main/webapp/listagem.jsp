@@ -152,6 +152,11 @@
 					class="btn btn-dark m-2 border border-secondary">Adicionar
 					novo cliente</button>
 			</form>
+			<form action="/alissonDados/servlet?action=ActionImport"
+				method="post">
+				<button type="submit"
+					class="btn btn-dark m-2 border border-secondary">Importar TXT</button>
+			</form>
 		</div>
 
 	</div>
