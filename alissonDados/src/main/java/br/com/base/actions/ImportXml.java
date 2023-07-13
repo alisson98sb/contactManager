@@ -30,6 +30,7 @@ public class ImportXml implements Acao {
 			  
 			  cliente1.setPhone(contato.split(",")[2].replace("(", "").replace(")", "").replace("-", "").replace(" ", "").trim());
 			  		  
+			  cliente1.setInstagram(contato.split(",")[3].trim());
 			  cliente1.setUser_id(user.getId());
 				
 			  db.addClient(cliente1);
