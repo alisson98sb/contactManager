@@ -11,15 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
-
+ -->
 <title>Insert title here</title>
 </head>
 <script>
 
 	function ReadFile(inputt){
-		
 		const preview = document.getElementById('preview');
 		const input = document.getElementById('arquivo');
 		
