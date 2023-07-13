@@ -27,12 +27,12 @@
 	        
 	        fileReader.readAsText(file); 
 	        fileReader.onload = function() {
-	          console.log(fileReader.result);
 	          preview.value = fileReader.result
 	        }; 
 	        fileReader.onerror = function() {
 	          alert(fileReader.error);
 	        }; 
+	        
 	}
 	
 </script>
@@ -41,15 +41,15 @@
 
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
-		
-		<form action="/alissonDados/servlet?action=ImportXml"  method="post">
-		  <input type="file" id="arquivo" name="arquivo" onchange="ReadFile(this)" style="background: transparent;color: white;">
-		  <button type="submit" class="btn btn-dark m-2 border border-secondary">Importar</button>
+	
+		<form action="/alissonDados/servlet?action=ShowImportXml"  method="post">
+		  <input type="file" id="arquivo" name="arquivo" onchange="ReadFile(this)" style="background: transparent;color: white;" required>
+		  <button type="submit" class="btn btn-dark m-2 border border-secondary">Analisar importação</button>
 		  <div>
 			  <input type="text" height="8" width="50" id="preview" name="contatos" hidden>
 		  </div>
 		</form>
-		
+	
 	</div>
 </body>
 </html>
