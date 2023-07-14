@@ -34,9 +34,7 @@
 		<div class="table w-75" style="max-height: 70vh; overflow: auto;">
 		
 			<% 
-				Object preview = request.getAttribute("preview");
-			 	 System.out.println("teste");
-				
+				Object preview = request.getAttribute("preview");				
 				List<Cliente> clientesList = (List<Cliente>) request.getAttribute("clientes");
 			%>
 			<table class="table table-dark table-striped">
@@ -64,12 +62,20 @@
 
 			</table>
 		</div>
-		<form action="/alissonDados/servlet?action=ActionSaveImportDb"  method="post">
-			  <button type="submit" class="btn btn-dark m-2 border border-secondary">Importar</button>
-			  <div>
-				  <input type="text" height="8" width="50" id="preview" name="contatos" value="<%=preview %>" hidden>
-			  </div>
-		</form>
+		
+		<div class="d-flex">
+			<form action="/alissonDados/servlet?action=ActionImport"  method="post">
+				  <button type="submit" class="btn btn-dark m-2 border border-secondary">Voltar</button>
+			</form>
+			
+			<form action="/alissonDados/servlet?action=ActionSaveImportDb"  method="post">
+				  <button type="submit" class="btn btn-dark m-2 border border-secondary">Importar</button>
+				  <div>
+					  <input type="text" height="8" width="50" id="preview" name="contatos" value="<%=preview %>" hidden>
+				  </div>
+			</form>
+		</div>
+		
 	</div>
 </body>
 </html>
