@@ -17,13 +17,35 @@
 
 <title>Insert title here</title>
 </head>
+<script>
+	// filtro de clientes por texto
+	function filterList(){
+		var form = document.querySelector('#search-input').value;
+
+		const searchInput = event.target.value.toLowerCase();
+		const items = document.querySelectorAll('.list-group-itemss');
+		
+		items.forEach((item) => {
+			if(item.textContent.toLowerCase().includes(form.toLowerCase())) {
+				item.parentElement.style.display = '';	
+			}
+			else {
+				item.parentElement.style.display = 'none';				
+			}
+		})
+		
+	}
+	
+</script>
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div
 		class="d-flex justify-content-center align-items-center flex-column h-75">
 		<h1 class="text-light " style="margin: 3rem 0;">Listagem de
 			clientes</h1>
-
+		<div class="container col-4 mt-5">
+			<input type="text" class="form-control mb-5 p-3" placeholder="Buscar..." id="search-input" onkeyup="filterList(this)">
+		</div>
 		<div class="table w-75" style="max-height: 70vh; overflow: auto;">
 			<% 
 				List<Cliente> clientesList = (List<Cliente>) request.getAttribute("clientes");
@@ -37,7 +59,7 @@
 				<thead>
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">Nome</th>
+						<th scope="col" class="list-group-itemss">Nome</th>
 						<th scope="col">Cidade</th>
 						<th scope="col">Numero</th>
 						<th scope="col">WhatsApp</th>
@@ -51,15 +73,15 @@
 					<%
 					for (Cliente cliente : clientesList) {
 					%>
-					<tr>
+					<tr class="list-group-itemss-filho">
 						<th scope="row"><%=cliente.getId()%></th>
-						<td><%=cliente.getName()%></td>
+						<td class="list-group-itemss"><%=cliente.getName()%></td>
 						<td><%=cliente.getCity()%></td>
 						<td><%=Mascaras.mascPhone("(##) #####-####", cliente.getPhone())%></td>
 						<td>
 							<div style="margin-left: 20px;">
 								<a href="https://wa.me/55<%=cliente.getPhone()%>"
-									target="_blank"> <!-- <a href="https://www.example.com" target="_blank">Link</a> -->
+									target="_blank">
 									<svg style="color: #62f162;" xmlns="http://www.w3.org/2000/svg"
 										width="16" height="16" fill="currentColor"
 										class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -76,7 +98,7 @@
 									<div style="margin-left: 20px;">
 										<a
 											href="https://www.instagram.com/<%=cliente.getInstagram()%>"
-											target="_blank"> <!-- <a href="https://www.example.com" target="_blank">Link</a> -->
+											target="_blank"> 
 											<svg style="color: #b7177c;"
 												http://www.w3.org/2000/svg" width="16" height="16"
 												fill="currentColor" class="bi bi-instagram"
@@ -88,7 +110,7 @@
 									</div> 
 							<%
 								} else {
-						 	%>	
+						 	%>
 
 							<div style="margin-left: 18px;">
 								<a href="/alissonDados/servlet?action=ActionUpdateClienteForm&id=<%=cliente.getId()%>">
