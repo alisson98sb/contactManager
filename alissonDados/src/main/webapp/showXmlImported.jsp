@@ -6,6 +6,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	/* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
+e 10px de altura para a barra horizontal */
+	::-webkit-scrollbar {
+	width:10px;
+	height: 10px;
+	}
+	 
+	/* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+	::-webkit-scrollbar-track {
+	background:#333;
+	}
+
+	 
+	/* aqui é a alça da barra, que demonstra a altura que você está na página
+	estou colocando uma cor azul clara nela*/
+	::-webkit-scrollbar-thumb {
+	background: #2e9dd8;
+	background: -moz-linear-gradient(top, #333333 0%, #3f69b1 25%, #2e9dd8 50%, #3f69b1 76%, #333333 100%);
+	background: -webkit-linear-gradient(top, #333333 0%,#3f69b1 25%,#2e9dd8 50%,#3f69b1 76%,#333333 100%);
+	background: linear-gradient(to bottom, #333333 0%,#3f69b1 25%,#2e9dd8 50%,#3f69b1 76%,#333333 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#333333',GradientType=0 );
+
+	}
+	
+	.table {
+		box-shadow: 10px 5px 5px black;
+	}
+</style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet"
