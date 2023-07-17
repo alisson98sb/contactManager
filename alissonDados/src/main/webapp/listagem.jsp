@@ -17,6 +17,24 @@
 
 <title>Insert title here</title>
 </head>
+<style>
+  .placeholder {
+	background: #2B3035 !important;
+    cursor: initial;
+    color: white !important;
+    border: none;
+	box-shadow: 10px 5px 5px black;
+  }
+
+  .placeholder::placeholder {
+  	color: white;
+  }
+  
+  .placeholder:focus {
+  	border-color: white;
+  	box-shadow: 10px 5px 5px black;
+  }
+</style>
 <script>
 	// filtro de clientes por texto
 	function filterList(){
@@ -44,7 +62,7 @@
 		<h1 class="text-light " style="margin: 3rem 0;">Listagem de
 			clientes</h1>
 		<div class="container col-4 mt-5">
-			<input type="text" class="form-control mb-5 p-3" placeholder="Buscar..." id="search-input" onkeyup="filterList(this)">
+			<input type="text" class="form-control mb-5 p-3 placeholder" placeholder="Buscar..." id="search-input" onkeyup="filterList(this)">
 		</div>
 		<div class="table w-75" style="max-height: 70vh; overflow: auto;">
 			<% 
