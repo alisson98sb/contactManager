@@ -42,9 +42,7 @@ e 10px de altura para a barra horizontal */
 
 	}
 	
-	.table {
-		box-shadow: 10px 5px 5px black;
-	}
+
   .placeholder {
 	background: #2B3035 !important;
     cursor: initial;
