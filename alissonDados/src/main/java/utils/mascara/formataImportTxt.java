@@ -1,24 +1,28 @@
-package br.com.base.actions;
+package utils.mascara;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.base.constructor.Cliente;
 import br.com.base.constructor.Usuario;
-import br.com.base.db.DAO.ClientesDb;
 
-public class ImportXml implements Acao {
-	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		  String preview = request.getParameter("contatos");
-		  String[] contatos = preview.split(";");
+public class formataImportTxt {
+	
+    public static List<Cliente> TxtFormatter(String preview, ServletRequest servletRequest, ServletResponse servletResponse) {
+    	
+    	HttpServletRequest request = (HttpServletRequest) servletRequest;
+		/* HttpServletResponse response = (HttpServletResponse) servletResponse; */
+		 
+        
+    	 String[] contatos = preview.split(";");
 		  
-		  ClientesDb db = new ClientesDb();
-		
+		  List<Cliente> cliente = new ArrayList<>();
+
 		  HttpSession sessao = request.getSession();		
 		  Usuario user = (Usuario)sessao.getAttribute("usuarioLogado");
 		  
@@ -35,10 +39,12 @@ public class ImportXml implements Acao {
 			  }
 			  
 			  cliente1.setUser_id(user.getId());
-				
-			  db.addClient(cliente1);
+			  
+			  cliente.add(cliente1);
 		  }
-
-		return "/servlet?action=ActionList";
-	}
+		  
+    	return cliente;
+    }
 }
+
+

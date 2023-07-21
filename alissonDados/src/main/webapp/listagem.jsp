@@ -17,13 +17,89 @@
 
 <title>Insert title here</title>
 </head>
+<style>
+
+	/* Fixar o titulo da tabela no momento do scroll */
+	table {
+		position: relative;
+	}
+	
+	thead > tr > th {
+		position: sticky;
+		top: -5px;
+	}
+	
+/* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
+e 10px de altura para a barra horizontal */
+	::-webkit-scrollbar {
+	width:10px;
+	height: 10px;
+	}
+	 
+	/* aqui é para personalizar o fundo da barra, neste caso estou colocando um fundo cinza escuro*/
+	::-webkit-scrollbar-track {
+	background:#333;
+	}
+
+	 
+	/* aqui é a alça da barra, que demonstra a altura que você está na página
+	estou colocando uma cor azul clara nela*/
+	::-webkit-scrollbar-thumb {
+	background: #2e9dd8;
+	background: -moz-linear-gradient(top, #333333 0%, #3f69b1 25%, #2e9dd8 50%, #3f69b1 76%, #333333 100%);
+	background: -webkit-linear-gradient(top, #333333 0%,#3f69b1 25%,#2e9dd8 50%,#3f69b1 76%,#333333 100%);
+	background: linear-gradient(to bottom, #333333 0%,#3f69b1 25%,#2e9dd8 50%,#3f69b1 76%,#333333 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#333333',GradientType=0 );
+
+	}
+	
+
+  .placeholder {
+	background: #2B3035 !important;
+    cursor: initial;
+    color: white !important;
+    border: none;
+	box-shadow: 10px 5px 5px black;
+  }
+
+  .placeholder::placeholder {
+  	color: white;
+  }
+  
+  .placeholder:focus {
+  	border-color: white;
+  	box-shadow: 10px 5px 5px black;
+  }
+</style>
+<script>
+	// filtro de clientes por texto
+	function filterList(){
+		var form = document.querySelector('#search-input').value;
+
+		const searchInput = event.target.value.toLowerCase();
+		const items = document.querySelectorAll('.list-group-itemss');
+		
+		items.forEach((item) => {
+			if(item.textContent.toLowerCase().includes(form.toLowerCase())) {
+				item.parentElement.style.display = '';	
+			}
+			else {
+				item.parentElement.style.display = 'none';				
+			}
+		})
+		
+	}
+	
+</script>
 <body class="vh-100 bg-dark">
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div
 		class="d-flex justify-content-center align-items-center flex-column h-75">
 		<h1 class="text-light " style="margin: 3rem 0;">Listagem de
 			clientes</h1>
-
+		<div class="container col-4 mt-5">
+			<input type="text" class="form-control mb-5 p-3 placeholder" placeholder="Buscar..." id="search-input" onkeyup="filterList(this)">
+		</div>
 		<div class="table w-75" style="max-height: 70vh; overflow: auto;">
 			<% 
 				List<Cliente> clientesList = (List<Cliente>) request.getAttribute("clientes");
@@ -36,8 +112,8 @@
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Nome</th>
+						<th scope="col">Cod</th>
+						<th scope="col" class="list-group-itemss">Nome</th>
 						<th scope="col">Cidade</th>
 						<th scope="col">Numero</th>
 						<th scope="col">WhatsApp</th>
@@ -51,15 +127,15 @@
 					<%
 					for (Cliente cliente : clientesList) {
 					%>
-					<tr>
+					<tr class="list-group-itemss-filho">
 						<th scope="row"><%=cliente.getId()%></th>
-						<td><%=cliente.getName()%></td>
+						<td class="list-group-itemss"><%=cliente.getName()%></td>
 						<td><%=cliente.getCity()%></td>
 						<td><%=Mascaras.mascPhone("(##) #####-####", cliente.getPhone())%></td>
 						<td>
 							<div style="margin-left: 20px;">
 								<a href="https://wa.me/55<%=cliente.getPhone()%>"
-									target="_blank"> <!-- <a href="https://www.example.com" target="_blank">Link</a> -->
+									target="_blank">
 									<svg style="color: #62f162;" xmlns="http://www.w3.org/2000/svg"
 										width="16" height="16" fill="currentColor"
 										class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -71,26 +147,27 @@
 						</td>
 						<td>
 							<%
-							if (cliente.getInstagram() != null) {
+								if (!cliente.getInstagram().contains("null")) {
 							%>
-							<div style="margin-left: 20px;">
-								<a
-									href="https://www.instagram.com/<%=cliente.getInstagram()%>"
-									target="_blank"> <!-- <a href="https://www.example.com" target="_blank">Link</a> -->
-									<svg style="color: #b7177c;"
-										http://www.w3.org/2000/svg" width="16" height="16"
-										fill="currentColor" class="bi bi-instagram"
-										viewBox="0 0 16 16">
-											  <path
-											d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
-											</svg>
-								</a>
-							</div> <%
- } else {
- %>
+									<div style="margin-left: 20px;">
+										<a
+											href="https://www.instagram.com/<%=cliente.getInstagram()%>"
+											target="_blank"> 
+											<svg style="color: #b7177c;"
+												http://www.w3.org/2000/svg" width="16" height="16"
+												fill="currentColor" class="bi bi-instagram"
+												viewBox="0 0 16 16">
+													  <path
+													d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+													</svg>
+										</a>
+									</div> 
+							<%
+								} else {
+						 	%>
 
 							<div style="margin-left: 18px;">
-								<a href="/alissonDados/cliente?id=<%=cliente.getId()%>&update=1">
+								<a href="/alissonDados/servlet?action=ActionUpdateClienteForm&id=<%=cliente.getId()%>">
 									<svg style="color: white;"
 										http://www.w3.org/2000/svg" width="16" height="16"
 										fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
