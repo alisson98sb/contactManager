@@ -30,10 +30,16 @@ e 10px de altura para a barra horizontal */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#333333',GradientType=0 );
 
 	}
-	
-	.table {
-		box-shadow: 10px 5px 5px black;
+		/* Fixar o titulo da tabela no momento do scroll */
+	table {
+		position: relative;
 	}
+	
+	thead > tr > th {
+		position: sticky;
+		top: -5px;
+	}
+	
 </style>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"

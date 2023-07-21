@@ -18,6 +18,17 @@
 <title>Insert title here</title>
 </head>
 <style>
+
+	/* Fixar o titulo da tabela no momento do scroll */
+	table {
+		position: relative;
+	}
+	
+	thead > tr > th {
+		position: sticky;
+		top: -5px;
+	}
+	
 /* personalizar a barra em geral, aqui estou definindo 10px de largura para a barra vertical
 e 10px de altura para a barra horizontal */
 	::-webkit-scrollbar {
@@ -101,7 +112,7 @@ e 10px de altura para a barra horizontal */
 			<table class="table table-dark table-striped">
 				<thead>
 					<tr>
-						<th scope="col">#</th>
+						<th scope="col">Cod</th>
 						<th scope="col" class="list-group-itemss">Nome</th>
 						<th scope="col">Cidade</th>
 						<th scope="col">Numero</th>
