@@ -13,6 +13,7 @@
 <title>DigiCon</title>
 </head>
 <body class="vh-100 bg-dark">
+	<!-- HOME.JSP -->
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div class=" d-flex h-50 justify-content-center">
 		<div class="main d-flex justify-content-center align-items-center flex-column" style="max-width: 75%; jus">

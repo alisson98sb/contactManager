@@ -18,6 +18,7 @@
 </head>
 
 <body class="vh-100 bg-dark">
+	<!-- LOGIN -->
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div class="d-flex justify-content-center align-items-center flex-column h-75 ">
 
