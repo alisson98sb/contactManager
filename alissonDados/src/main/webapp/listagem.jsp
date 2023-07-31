@@ -92,6 +92,7 @@ e 10px de altura para a barra horizontal */
 	
 </script>
 <body class="vh-100 bg-dark">
+	<!-- LISTAGEM -->
 	<jsp:include page="templates/nav.jsp"></jsp:include>
 	<div
 		class="d-flex justify-content-center align-items-center flex-column h-75">
@@ -147,7 +148,8 @@ e 10px de altura para a barra horizontal */
 						</td>
 						<td>
 							<%
-								if (!cliente.getInstagram().contains("null")) {
+								//Se existir instagram cadastrado
+								if (!cliente.getInstagram().contains("null") && (cliente.getInstagram().length() > 3) ) {
 							%>
 									<div style="margin-left: 20px;">
 										<a
