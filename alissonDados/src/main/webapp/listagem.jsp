@@ -8,14 +8,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/listagem.css"
 	title="style">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta charset="UTF-8">
-
-<title>Insert title here</title>
+	<jsp:include page="templates/templateHeader.jsp"></jsp:include>
 </head>
 <style>
 
@@ -149,6 +142,7 @@ e 10px de altura para a barra horizontal */
 						<td>
 							<%
 								//Se existir instagram cadastrado
+								//Valida se é diferente de null E diferente de vazio
 								if (!cliente.getInstagram().contains("null") && (cliente.getInstagram().length() > 3) ) {
 							%>
 									<div style="margin-left: 20px;">

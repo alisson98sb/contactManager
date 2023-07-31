@@ -3,18 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-	crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta charset="UTF-8">
+<jsp:include page="templates/templateHeader.jsp"></jsp:include>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
 
-<title>Insert title here</title>
 </head>
 
 <body class="vh-100 bg-dark">

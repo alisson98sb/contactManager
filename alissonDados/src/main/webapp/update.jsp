@@ -40,7 +40,7 @@
 							<span class="input-group-text " id="inputGroup-sizing-default">Nome:</span>
 							<input type="text" class="form-control" name="name"
 								value="${ name }" aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default">
+								aria-describedby="inputGroup-sizing-default" pattern=".{2,35}"  >
 						</div>
 					</div>
 					<div class="col">
@@ -70,7 +70,7 @@
 							<span class="input-group-text" id="inputGroup-sizing-default">Instagram:</span>
 							<input type="text" class="form-control" name="insta"
 								value="${ insta }" aria-label="Sizing example input"
-								aria-describedby="inputGroup-sizing-default">
+								aria-describedby="inputGroup-sizing-default" pattern=".{3,20}">
 						</div>
 					</div>
 				</div>
