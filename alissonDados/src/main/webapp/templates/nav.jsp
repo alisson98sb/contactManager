@@ -37,7 +37,7 @@
 			<%} else {%>
 						<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="/alissonDados/servlet?action=Login">Login</a>
+					<a class="nav-link active"  href="/alissonDados/servlet?action=LoginForm">Login</a>
 				</li>
 			</ul>
 			<%} %>
